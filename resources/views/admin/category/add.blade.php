@@ -1,5 +1,5 @@
 @extends('admin.layout.home')
-@section('title', "Add Product")
+@section('title', "Dashboard Admin Deramigo")
 @section('content')
 
 <div class="row">
@@ -10,8 +10,7 @@
                         </div>
                         <div class="ibox-content">
                             
-                            	<!-- <form method="POST" class="form-horizontal" action="{{ url('/admin/product/add') }}" enctype="multipart/form-data"> -->
-                                {!! Form::open(array('action' => 'ProductController@inputproduct' , 'class' => 'form-horizontal' , 'files' => true)) !!}
+                            	<form method="POST" class="form-horizontal" action="{{ url('/admin/product/add') }}" enctype="multipart/form-data">
                             		{{ csrf_field() }}
                                 <div class="form-group">
                                 	{{ Form::label('title', 'Nama Produk :' , array('class' => 'col-lg-2 control-label')) }}
@@ -50,14 +49,7 @@
                           			</div>
                       			</div>
 
-                      <div class="form-group">
-                        {{ Form::label('title', 'Image :' , array('class' => 'col-lg-2 control-label')) }}
-                          <div class="col-sm-5">
-                            {{ Form::file('featured_image', array('class' => 'form-control')) }}
-                          </div>
-                      </div>
-
-                <!-- <div class="form-group">
+                <div class="form-group">
                 	{{ Form::label('title', 'Product Image :' , array('class' => 'col-lg-2 control-label')) }}
                 	<div class="col-sm-10">
                       			<div class="input-group control-group increment ">
@@ -76,7 +68,7 @@
           						</div>
         						</div>
                 		</div>
-            	</div> -->
+            	</div>
 
             	<div class="form-group">
                         {{ Form::label('title', 'Price :' , array('class' => 'col-lg-2 control-label')) }}

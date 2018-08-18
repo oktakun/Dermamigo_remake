@@ -18,6 +18,8 @@ class DashboardController extends Controller
       //   //set is production to true for production mode
       // Midtrans::$isProduction = false;
   }
+
+  
    public function dashboard()
    {
 

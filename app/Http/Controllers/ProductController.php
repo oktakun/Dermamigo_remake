@@ -26,8 +26,9 @@ class ProductController extends Controller
   }
 
   public function product()
-  {
-  	return view('admin.product.index');
+  { 
+    $listproduct = Product::OrderBy('created_at', 'DESC')->get();
+  	return view('admin.product.index')->with('listproduct', $listproduct);
   }
 
   public function add()
@@ -50,6 +51,7 @@ class ProductController extends Controller
           'tax_status' => 'required',
           'tax' => 'required',
           'stock' => 'required',
+          // featured_image
           'featured' => 'required',
           'status' => 'required'
 
@@ -60,7 +62,7 @@ class ProductController extends Controller
 
 $product->id            = strtoupper(Uuid::uuid4($request->id));
 $product->name          = $request->name;
-$product->slug          = str_slug($request->name, "-");
+$product->slug          = str_slug($request->name, '-');
 $product->SKU           = $request->SKU;
 $product->description   = Purifier::clean($request->description);
 $product->add_info      = $request->add_info;
@@ -74,28 +76,30 @@ $product->status        = $request->status;
 
 if ($request->hasFile('featured_image')) 
 {
+
   $image_url = $request->file('featured_image');
   $filename = time() . '.' . $image_url->getClientOriginalExtension();
   $location = public_path('public/images/' . $filename);
   Image::make($image_url)->resize(800, 400)->save($location);
 
   $product->image_url = $filename;
+
+  // optional
+  // $filename = time() . '.' . $request->file('featured_image')->extension();
+  // $path = $request->file('featured_image')->storeAs('public/images/', $filename);
+  // Image::make($path)->resize(800, 400)->save($path);
+
+  //   return [
+        
+  //       'featured_image' => $path
+  //   ];
+
 }
-
-// $filename = time() . '.' . $data['profile_img']->extension();
-//     $path = $data['profile_img']->storeAs('uploads/profile_images', $filename);
-
-//     // This would ideally be in a job, triggered by the user created event
-//     Image::make($path)->resize(100,100)->save($path);
-
-//     return [
-//         // all your other fields...
-//         'profile_img' => $path
-//     ];
 
 $product->save();
 
-return redirect()->route('product.index');
+
+return redirect('/admin/product/');
 
 
   }

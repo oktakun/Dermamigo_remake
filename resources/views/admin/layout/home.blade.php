@@ -74,10 +74,14 @@
                     </li>
                     <li>
                         <a href="/admin/dashboard"><i class="fa fa-dashboard"></i> <span class="nav-label">Dashboards</span> </a>
+                    </li>
                     <li>
-                    <li>
-                        <a href="/admin/product"><i class="fa fa-shopping-bag"></i> <span class="nav-label">Products</span> </a>
-                    <li>
+                        <a href="#"><i class="fa fa-info"></i> <span class="nav-label">Info Products</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="/admin/product"><i class="fa fa-shopping-bag"></i> <span class="nav-label">List Products</span> </a></li>
+                            <li><a href="/admin/category"><i class="fa fa-sort"></i> <span class="nav-label">Category</span> </a></li>
+                        </ul>
+                    </li>
                 </ul>
 
             </div>

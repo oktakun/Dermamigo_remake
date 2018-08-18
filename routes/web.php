@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('admin/auth/login');
 });
 
-
+Route::group(['middleware' => ['web']], function () {
 
 Route::group(['prefix' => 'admin'], function () 
 {
@@ -31,11 +31,23 @@ Route::group(['prefix' => 'admin'], function ()
   Route::post('/password/reset', 'AdminAuth\ResetPasswordController@reset')->name('password.email');
   Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
-  Route::get('/dashboard/index', 'DashBoardController@dashboard');
+  Route::get('/dashboard/', 'DashBoardController@dashboard');
   Route::get('/product/', 'ProductController@product')->name('product');
   Route::get('/product/add', 'ProductController@add');
   Route::post('/product/add', 'ProductController@inputproduct');
+  Route::get('/category/', 'CategoryController@category')->name('category');
+
+  });
+
+
+
+
+
+
+
 
 });
+
+
 
 
