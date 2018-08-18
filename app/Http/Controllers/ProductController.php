@@ -71,6 +71,7 @@ $product->sale          = $request->sale;
 $product->tax_status    = $request->tax_status;
 $product->tax           = $request->tax;
 $product->stock         = $request->stock;
+$product->tags          = $request->tags;
 $product->featured      = $request->featured;
 $product->status        = $request->status;
 

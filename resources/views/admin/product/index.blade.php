@@ -4,7 +4,7 @@
 
 
 <div class="row">
-	<div class="col-lg-10">
+	<div class="col-lg-11">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5> Product List </h5>
@@ -20,7 +20,7 @@
                                 <thead>
                                 <tr>
                                     <th style="width:30ex">Produk</th>
-                                    <th>Product Name</th>
+                                    <th class="text-center">Product Name</th>
                                     <th class="text-right">Option
                                 </tr>
                                 </thead>
@@ -30,7 +30,7 @@
                                     <td>
                                         <img src="{{ asset('public/images/'.$data->image_url) }}" width="125" height="75">
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         {{ $data->name }}
                                     </td>
                                     <td class="text-right">

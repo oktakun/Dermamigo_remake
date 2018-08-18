@@ -13,7 +13,7 @@ class CreateProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
           $table->string('id', 36)->primary();
           $table->string('name');
           $table->string('slug')->unique();
@@ -26,6 +26,7 @@ class CreateProductTable extends Migration
           $table->string('tax_status');
           $table->string('tax');
           $table->string('stock');
+          $table->string('tags');
           $table->string('featured');
           $table->string('status');
           $table->timestamps();
