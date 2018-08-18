@@ -16,3 +16,4 @@ Route::get('/home', function ()
   Route::get('/product/', 	'ProductController@product');
   Route::get('/product/add', 'ProductController@add');
 
+

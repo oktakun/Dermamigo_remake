@@ -9,8 +9,9 @@
                             <h5>Create Product </h5>
                         </div>
                         <div class="ibox-content">
-                            <form method="POST" class="form-horizontal">
-
+                            
+                            	<form method="POST" class="form-horizontal" action="{{ url('/admin/product/add') }}" enctype="multipart/form-data">
+                            		{{ csrf_field() }}
                                 <div class="form-group">
                                 	{{ Form::label('title', 'Nama Produk :' , array('class' => 'col-lg-2 control-label')) }}
                                     <div class="col-sm-10">
@@ -121,7 +122,8 @@
                       <div class="form-group">
                         {{ Form::label('title', 'Tags :' , array('class' => 'col-lg-2 control-label')) }}
                           <div class="col-sm-10">
-                            <!-- nanti -->
+                            
+                            {{ Form::text('tags', null, array('class' => 'tagsinput form-control')) }}
                           </div>
                       </div>
 
@@ -157,7 +159,7 @@
                           </div>
                       </div>
 
-                      
+
 
                             </form>
                         </div>

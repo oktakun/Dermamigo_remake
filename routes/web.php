@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function () 
 {
+  
   Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
   Route::post('/login', 'AdminAuth\LoginController@login');
   Route::post('/logout', 'AdminAuth\LoginController@logout')->name('logout');
@@ -31,7 +32,7 @@ Route::group(['prefix' => 'admin'], function ()
   Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
   Route::get('/dashboard/index', 'DashBoardController@dashboard');
-  Route::get('/product/index', 'ProductController@product')->name('product');
+  Route::get('/product/', 'ProductController@product')->name('product');
   Route::get('/product/add', 'ProductController@add');
   Route::post('/product/add', 'ProductController@inputproduct');
 
